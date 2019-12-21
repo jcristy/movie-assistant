@@ -1,0 +1,52 @@
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	</head>
+	<link rel="stylesheet" href="css/movies.css">
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script src="https://unpkg.com/vue-cookies@1.5.12/vue-cookies.js"></script>
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.js"></script>
+	<body>
+		<div id="app">
+			<h1 class="banner">Movies</h1>
+			<div v-if="authenticated"><!-- Main Content -->
+				<div>
+					<span class="toolset">
+						<span v-bind:class="[ useTiles?'selectedOption':'unselectedOption' ]" v-on:click="useTiles=true">Tiles</span>
+						<span v-bind:class="[ useTiles?'unselectedOption':'selectedOption' ]" v-on:click="useTiles=false">Rows</span>
+					</span>
+					<span class="toolset">
+						<span>Show:</span>
+						<span v-bind:class="[ HDOnly=='off'?'selectedOption':'unselectedOption' ]" v-on:click="HDOnly = 'off'">HD and SD</span>
+						<span v-bind:class="[ HDOnly=='on'?'selectedOption':'unselectedOption' ]" v-on:click="HDOnly = 'on'">HD Only</span>
+						<span v-bind:class="[ HDOnly=='preferred'?'selectedOption':'unselectedOption' ]" v-on:click="HDOnly = 'preferred'" >HD Preferred</span>
+					</span>
+					<span class="toolset">
+						<span v-bind:class="[ RecordedOnly?'selectedOption':'unselectedOption' ]" v-on:click="RecordedOnly = !RecordedOnly">Recorded Only</span>
+					</span>
+					<a v-on:click="logout()" class='selectedOption'>Logout</a>
+				</div><br>
+				<div v-for="movie in filterMovies(movies)" v-on:click="movie.detailsActive=!movie.detailsActive" class="movie" :class="[{ detailsactive: movie.detailsActive },[useTiles?'movie-tile':'movie-row']]">
+					<div class="movie-top-row"><span class="movie-title">{{ movie.Name }}</span><span class="hd-icon" v-if="movie.IsHD"> HD</span></div>
+					<div class="movie-info">
+						{{ movie.ProductionYear }} <span v-if="movie.CommunityRating"> - {{movie.CommunityRating}}</span> <br>
+					{{ movie.ShortStartDate }} - {{ channels[movie.ChannelId].Name }}
+					</div>
+					<div v-show="movie.detailsActive">
+						{{ movie.Overview }}
+					</div>
+					<div v-if="movie.TimerId!='none'" class="selectedOption record" v-on:click.stop="cancelRecording(movie)">Recording Scheduled</div>
+					<div v-else v-on:click.stop="scheduleRecording(movie)" class="unselectedOption record">Record</div>
+				</div>
+			</div><!-- End main content -->
+			<div v-else>
+				<input type="text" name="URL" v-model="url" placeholder="http://192.168.1.1:8096" />
+        			<input type="text" name="username" v-model="user.Username" placeholder="Username" />
+			        <input type="password" name="password" v-model="user.Pw" placeholder="Password" />
+			        <button type="button" v-on:click="login()">Login</button>
+			</div>
+		</div>
+	</body>
+	<script src="scripts/movies.js"></script>
+</html>

@@ -1,0 +1,15 @@
+# MovieHelper
+
+Pulls all of the movies out of the Live TV section of an EmbyServer and provides filtering tools.
+
+## Benefits
+- More than 1 days worth of data compared to the Live TV -> Movies page in the normal Emby client
+- Ignore non-HD when HD is available
+- Really Ugly Interface
+- Filter for time of day (future)
+- Filter by channels (future)
+- Filter by genre (future)
+
+## Install
+
+This is all static (from the server's perspective) content. I dump it into a folder that Nginx serves. You can use pretty much anything.

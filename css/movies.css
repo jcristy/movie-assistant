@@ -1,0 +1,91 @@
+/*
+ * 05386b - dark blue
+ * 379683 - darker green
+ * 5CDB95 - mid green
+ * 8EE4AF - light green
+ * EDF5E1 - cream
+ */
+body {
+	background-color: #EDF5E1;
+	font-family: Arial;
+}
+h1 {
+	color: #379683;
+}
+
+.movie-top-row {
+	float: left;
+	width: 100%;
+	padding-bottom: 5px;
+}
+
+.movie {
+	background-color: #05386b;
+	color: #EDF5E1;
+}
+
+.hd-icon {
+	float: right;
+	background-color: #379683;
+	color: #EDF5E1;
+	padding: 3px;
+}
+
+.movie-title {
+	float: left;
+	color: #379683;
+	font-size:125%;
+	font-weight: bold;
+	width: 85%;
+}
+
+.movie-tile {
+	padding: 5px;
+	float: left;
+	width: 200px;
+	height: 200px;
+	margin-right: 20px;
+	margin-bottom: 20px;
+}
+
+.movie-tile.detailsactive {
+	width: initial;
+	height: initial;
+}
+
+.movie-row {
+	padding: 5px;
+	min-height: 100px;
+	margin-bottom: 20px;
+	max-width: 800px;
+}
+
+.movie-row.detailsactive {
+}
+
+.record{
+	width: 25%;
+	margin-top: 10px;
+}
+
+.movie-tile.record{
+	float:right;
+}
+
+.selectedOption {
+	background-color: #379683;
+	color: #EDF5E1;
+	padding: 10px;
+}
+
+.unselectedOption {
+	background-color: #8EE4AF;
+	color: #EDF5E1;
+	padding: 10px;
+}
+
+.toolset {
+	display:inline-block;
+	line-height: 3;
+	background-color: #8EE4AF;
+}
