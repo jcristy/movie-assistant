@@ -1,14 +1,18 @@
-# MovieHelper
+# Movie Assistant
 
-Pulls all of the movies out of the Live TV section of an EmbyServer and provides filtering tools.
+Pulls all of the movies out of the Live TV guide of an EmbyServer and provides filtering tools.
 
 ## Benefits
 - More than 1 days worth of data compared to the Live TV -> Movies page in the normal Emby client
 - Ignore non-HD when HD is available
 - Really Ugly Interface
+- Filter duplicates (future)
 - Filter for time of day (future)
 - Filter by channels (future)
 - Filter by genre (future)
+
+## Use Case
+I tend to record movies off of TV, particularly in the middle of the night when everything is otherwise idle, to watch later. This tool helps cut through the crap.
 
 ## Install
 
